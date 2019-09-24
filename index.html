@@ -1,8 +1,32 @@
 <html>
-    <head>
-        <title>Suspect Task</title>
-    </head>
-    <body>
-        <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
-    </body>
+
+<head>
+    <title>Suspect Task</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="600" height="300" style="border:1px solid #d3d3d3;"></canvas>
+    <br>
+    <h3>Create Rectangle</h3>
+    <input type="text" id="x" placeholder="x coordinate" />
+    <input type="text" id="y" placeholder="y coordinate" />
+    <input type="text" id="w" placeholder="Width" />
+    <input type="text" id="h" placeholder="Height" />
+    <button onclick="createRectangle()">Create Rectangle</button>
+</body>
+
+<script>
+    function createRectangle() {
+        x = document.getElementById("x").value;
+        y = document.getElementById("y").value;
+        w = document.getElementById("w").value;
+        h = document.getElementById("h").value;
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.rect(x, y, w, h);
+        ctx.stroke();
+    }
+</script>
+
 </html>
