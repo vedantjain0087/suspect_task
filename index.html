@@ -2,10 +2,35 @@
 
 <head>
     <title>Suspect Task</title>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        td,
+        th {
+            width: 100px;
+        }
+    </style>
 </head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
 <body>
-    <canvas id="myCanvas" width="600" height="300" style="border:1px solid #d3d3d3;"></canvas>
+    <div class="row">
+        <div class="col-md-7">
+            <canvas id="myCanvas" width="600" height="300" style="border:1px solid #d3d3d3;"></canvas>
+        </div>
+        <div class="col-md-5">
+            <table id="list">
+                <tr>
+                    <th>X</th>
+                    <th>Y</th>
+                    <th>Width</th>
+                    <th>Height</th>
+                </tr>
+            </table>
+        </div>
+    </div>
     <br>
     <h3>Create Rectangle</h3>
     <input type="text" id="x" placeholder="x coordinate" />
@@ -14,7 +39,11 @@
     <input type="text" id="h" placeholder="Height" />
     <button onclick="createRectangle()">Create Rectangle</button>
 </body>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script>
     function createRectangle() {
         x = document.getElementById("x").value;
@@ -26,6 +55,18 @@
         ctx.beginPath();
         ctx.rect(x, y, w, h);
         ctx.stroke();
+        dom = `
+        <tr>
+        <td>${x}</td> <td>${y}</td> <td>${w}</td> <td>${h}</td> <td><button onclick='delete_rec(${x},${y},${w},${h})'>Delete</button></td></tr>
+        `
+        $("#list").append(dom)
+    }
+
+    function delete_rec(x, y, w, h) {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.strokeStyle = "#ffffff";
+        ctx.clearRect(x-1, y-1, w+2, h+2);
     }
 </script>
 
