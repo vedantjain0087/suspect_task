@@ -2,10 +2,9 @@
 
 <head>
     <title>Suspect Task</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <style>
-        body {
-            padding: 10px;
-        }
+       
 
         td,
         th {
@@ -13,9 +12,10 @@
         }
     </style>
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
 
 <body>
+<div class ="container">
     <div class="row">
         <div class="col-md-7">
             <canvas id="myCanvas" width="600" height="300" style="border:1px solid #d3d3d3;"></canvas>
@@ -65,7 +65,8 @@
 
         </div>
     </div>
-</body>
+</div>
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -115,5 +116,5 @@
         create_item(80,20 ,n_w, n_h);
     }
 </script>
-
+</body>
 </html>
